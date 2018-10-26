@@ -78,7 +78,7 @@ async def on_member_join(member):
 
 @client.command(pass_context=True, hidden=True)
 async def setavatar(ctx, url):
-	if ctx.message.author.id not in owner:
+	if ctx.message.author.id not in is_dark:
 		return
 	async with aiohttp.ClientSession() as session:
 		async with session.get(url) as r:
