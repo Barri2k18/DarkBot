@@ -25,6 +25,8 @@ async def status_task():
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' servers'))
         await asyncio.sleep(5)
+	await client.change_presence(game=discord.Game(name='FriendZone.py'))
+        await asyncio.sleep(3)
         
         
 @client.event
@@ -32,7 +34,7 @@ async def on_ready():
     print('Logged in as '+client.user.name+' (ID:'+client.user.id+') | Connected to '+str(len(client.servers))+' servers | Connected to '+str(len(set(client.get_all_members())))+' users')
     print('--------')
     print('--------')
-    print('Started ?BOT')
+    print('Started FriendZone BOT')
     print('Created by Barry#0828')
     client.loop.create_task(status_task())
 
