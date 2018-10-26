@@ -25,8 +25,6 @@ async def status_task():
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='in '+str(len(client.servers))+' servers'))
         await asyncio.sleep(5)
-	await client.change_presence(game=discord.Game(name='FriendZone.py'))
-        await asyncio.sleep(3)
         
         
 @client.event
