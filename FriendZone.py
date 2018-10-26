@@ -8,8 +8,11 @@ import colorsys
 import random
 import os
 import time
+import aiohttp
 from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
+
+owner = ["362672438699622403"]
 
 
 Forbidden= discord.Embed(title="Permission Denied", description="1) Please check whether you have permission to perform this action or not. \n2) Please check whether my role has permission to perform this action in this channel or not. \n3) Please check my role position.", color=0x00ff00)
@@ -73,6 +76,18 @@ async def on_member_join(member):
     embed.set_thumbnail(url=member.avatar_url)
     await client.send_message(channel, embed=embed)
 
+@client.command(pass_context=True, hidden=True)
+async def setavatar(ctx, url):
+	if ctx.message.author.id not in owner:
+		return
+	async with aiohttp.ClientSession() as session:
+		async with session.get(url) as r:
+			data = await r.read()
+	await client.edit_profile(avatar=data)
+	await client.say("I changed my icon")
+	await client.delete_message(ctx.message)
+	
+	
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
 @commands.cooldown(rate=5,per=86400,type=BucketType.user) 
