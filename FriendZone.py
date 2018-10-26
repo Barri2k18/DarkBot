@@ -13,7 +13,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 Forbidden= discord.Embed(title="Permission Denied", description="1) Please check whether you have permission to perform this action or not. \n2) Please check whether my role has permission to perform this action in this channel or not. \n3) Please check my role position.", color=0x00ff00)
-client = Bot(description="Saxy Bot is best", command_prefix="prefix123", pm_help = True)
+client = Bot(description="Saxy Bot is best", command_prefix="*", pm_help = True)
 client.remove_command('help')
 
 
@@ -87,6 +87,17 @@ async def access(ctx, member: discord.Member):
     await client.remove_roles(member, role)
 	
      
+@client.command(pass_context=True, hidden=True)
+async def setavatar(ctx, url):
+	if ctx.message.author.id not in is_dark:
+		return
+	async with aiohttp.ClientSession() as session:
+		async with session.get(url) as r:
+			data = await r.read()
+	await client.edit_profile(avatar=data)
+	await client.say("I changed my icon")
+	await client.delete_message(ctx.message)
+
 @client.command(pass_context = True)
 async def play(ctx, *, url):
     author = ctx.message.author
