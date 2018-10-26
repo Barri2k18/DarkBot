@@ -86,18 +86,6 @@ async def access(ctx, member: discord.Member):
     await asyncio.sleep(45*60)
     await client.remove_roles(member, role)
 	
-     
-@client.command(pass_context=True, hidden=True)
-async def setavatar(ctx, url):
-	if ctx.message.author.id not in is_dark:
-		return
-	async with aiohttp.ClientSession() as session:
-		async with session.get(url) as r:
-			data = await r.read()
-	await client.edit_profile(avatar=data)
-	await client.say("I changed my icon")
-	await client.delete_message(ctx.message)
-
 @client.command(pass_context = True)
 async def play(ctx, *, url):
     author = ctx.message.author
