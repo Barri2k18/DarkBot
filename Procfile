@@ -1,1 +1,1 @@
-worker: python FriendZone.py
+worker: python Zone.py
