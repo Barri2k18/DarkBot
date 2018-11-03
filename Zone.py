@@ -488,7 +488,7 @@ async def clear(ctx, number):
        
     try:
         await client.delete_messages(mgs)          
-        await client.say(str(number)+' messages deleted')
+        await client.say(str(number)+' messages deleted', delete_after=5)
      
     except discord.Forbidden:
         await client.say(embed=Forbidden)
