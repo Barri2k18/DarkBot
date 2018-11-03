@@ -492,6 +492,7 @@ async def clear(ctx, number):
      
     except discord.Forbidden:
         await client.say(embed=Forbidden)
+	await client.delete_message(ctx.message)
         return
     except discord.HTTPException:
         await client.say('clear failed.')
