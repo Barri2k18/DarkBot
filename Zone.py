@@ -92,7 +92,7 @@ async def setavatar(ctx, url):
 async def info(ctx): #----------------------------------- Shows info of Zone bot
 	message = ctx.message
 	embed = discord.Embed(colour = discord.Colour.blue())
-	embed.set_author(name='Zone`s Info', icon_url=bot.user.avatar_url)
+	embed.set_author(name='Zone`s Info', icon_url=client.user.avatar_url)
 	embed.add_field(name='Owners:', value='<:pepeLovesBrilliance:506934028407144448> `Barry#08282` & <:pepeLovesBalance:50977413932266> `Nick#4671`', inline=False)
 	embed.add_field(name='Library:', value='discord.py (Python)', inline=False)
 	embed.add_field(name='Servers:', value='{}'.format(len(client.servers)), inline=True)
