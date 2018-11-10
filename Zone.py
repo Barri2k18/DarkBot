@@ -14,9 +14,10 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 owner = ["362672438699622403"]
 
+BOT_PREFIX = "z!", "501430800508649483"
 
 Forbidden= discord.Embed(title="Permission Denied", description="1) Please check whether you have permission to perform this action or not. \n2) Please check whether my role has permission to perform this action in this channel or not. \n3) Please check my role position.", color=0x00ff00)
-client = Bot(description="Saxy Bot is best", command_prefix="z!", pm_help = True)
+client = Bot(description="Saxy Bot is best", command_prefix=BOT_PREFIX, pm_help = True)
 client.remove_command('help')
 
 
