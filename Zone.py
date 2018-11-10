@@ -89,6 +89,23 @@ async def setavatar(ctx, url):
 	await client.delete_message(ctx.message)
 
 @client.command(pass_context = True)
+async def info(ctx): #----------------------------------- Shows info of Zone bot
+	message = ctx.message
+	embed = discord.Embed(colour = discord.Colour.blue())
+	embed.set_author(name='Zone`s Info', icon_url=bot.user.avatar_url)
+	embed.add_field(name='Owners:', value='<:pepeLovesBrilliance:506934028407144448> `Barry#08282` & <:pepeLovesBalance:50977413932266> `Nick#4671`', inline=False)
+	embed.add_field(name='Library:', value='discord.py (Python)', inline=False)
+	embed.add_field(name='Servers:', value='{}'.format(len(client.servers)), inline=True)
+	embed.add_field(name='Users:', value='{}'.format(len(set(client.get_all_members())))), inline=True)
+	embed.add_field(name='Server:', value='[Click to join!](https://discord.gg/wtqV67x)', inline=True)
+	embed.add_field(name='Website:', value='[Coming Soon!](https://discord.gg/wtqV67x)', inline=True)
+	embed.set_footer(text='{}'.format(message.timestamp))
+	await client.say(embed=embed)
+	await client.add_reaction(message, emoji='👏')
+	await asyncio.sleep(3)
+	await client.delete_message(ctx.message)
+	
+@client.command(pass_context = True)
 async def purge(ctx, number):
     if ctx.message.author.server_permissions.kick_members:    
         mgs = [] #Empty list to put all the messages in the log
