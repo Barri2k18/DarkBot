@@ -121,14 +121,14 @@ async def report(ctx,reported:discord.Member, *, message):
     message=f'***Reportee:***\n{ctx.message.author.mention}\n***Reporting:***\n{reported.mention}\n ***Reason For Report:***\n*{message}*'
     await client.send_message(client.get_channel("505717933146767362"), message)
 
-@client.command(pass_context = True)
-async def giveaways(ctx):
-	embed=discord.Embed(title="  ")
-	embed.set_author(name="Giveaways",, icon_url="https://media.discordapp.net/attachments/511226306692775936/511960131169419264/612f3fc9dedfd368820b55c4cf259c07.png")
-	embed.add_field(name="How to host giveaways?", value="You can host giveaways and make requirements for the giveaway. After someone has won they must claim their price in 48 hours or less.", inline=True)
-	embed.add_field(name="What if i use alts?", value="The giveaway will be rerolled and ban incoming.", inline=True)
-	embed.set_footer(text="Barry#0828")
-	await client.say(embed=embed)
+#@client.command(pass_context = True)
+#async def giveaways(ctx):
+#	embed=discord.Embed(title="  ")
+#	embed.set_author(name="Giveaways",, icon_url="https://media.discordapp.net/attachments/511226306692775936/511960131169419264/612f3fc9dedfd368820b55c4cf259c07.png")
+#	embed.add_field(name="How to host giveaways?", value="You can host giveaways and make requirements for the giveaway. After someone has won they must claim their price in 48 hours or less.", inline=True)
+#	embed.add_field(name="What if i use alts?", value="The giveaway will be rerolled and ban incoming.", inline=True)
+#	embed.set_footer(text="Barry#0828")
+#	await client.say(embed=embed)
 	
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
